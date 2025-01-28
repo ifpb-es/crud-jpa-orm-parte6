@@ -17,10 +17,6 @@ public class MainSelectNPlusOneQueryProblem {
         // https://allaroundjava.com/hibernate-n1-selects-problem/
         // "Accessing all the items of lazily loaded entity association leads to what we call an N+1 Selects Problem."
 
-        // WARNING: Problema do produto cartesiano ao recuperar múltiplas associações ao mesmo tempo:
-        // https://allaroundjava.com/hibernate-cartesian-product-problem/
-        // "On the contrary to N+1 selects problem, the number of queries is not an issue here, but take a look at the returned result set."
-
         List<Teacher> teachers = null;
         try(EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw");
             EntityManager em = emf.createEntityManager()) {

@@ -10,10 +10,6 @@ public class MainSelectCartesianProductQueryProblem {
 
     public static void main(String[] args) {
 
-        // WARNING: Problema do SELECT N+1:
-        // https://allaroundjava.com/hibernate-n1-selects-problem/
-        // "Accessing all the items of lazily loaded entity association leads to what we call an N+1 Selects Problem."
-
         // WARNING: Problema do produto cartesiano ao recuperar múltiplas associações ao mesmo tempo:
         // https://allaroundjava.com/hibernate-cartesian-product-problem/
         // "On the contrary to N+1 selects problem, the number of queries is not an issue here, but take a look at the returned result set."
@@ -23,7 +19,7 @@ public class MainSelectCartesianProductQueryProblem {
             EntityManager em = emf.createEntityManager()) {
 
             Long id = em.createQuery("SELECT t.id FROM Teacher t", Long.class).setMaxResults(1).getSingleResult();
-            System.out.println(">>> EXEMPLO PROBLEMA N+1 COMEÇA AQUI!");
+            System.out.println(">>> EXEMPLO PROBLEMA PRODUTO CARTESIANO COMEÇA AQUI!");
 
             TypedQuery<Teacher> query = null;
 
@@ -42,7 +38,7 @@ public class MainSelectCartesianProductQueryProblem {
             System.out.println("Imprimindo...");
             System.out.println(teacher.getDisciplines().size());
             System.out.println(teacher);
-            System.out.println(">>> EXEMPLO PROBLEMA N+1 TERMINA AQUI!");
+            System.out.println(">>> EXEMPLO PROBLEMA PRODUTO CARTESIANO TERMINA AQUI!");
         }
 
     }
