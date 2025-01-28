@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
 
-public class MainSelectNPlusOne {
+public class MainSelectCartesianProductQueryProblem {
 
     public static void main(String[] args) {
 
@@ -25,21 +25,25 @@ public class MainSelectNPlusOne {
             Long id = em.createQuery("SELECT t.id FROM Teacher t", Long.class).setMaxResults(1).getSingleResult();
             System.out.println(">>> EXEMPLO PROBLEMA N+1 COMEÇA AQUI!");
 
+            TypedQuery<Teacher> query = null;
+
             // XXX: Não carregar explicitamente os relacionamentos
-            TypedQuery<Teacher> query = em.createQuery("SELECT t FROM Teacher t WHERE t.id = :id", Teacher.class);
+            query = em.createQuery("SELECT t FROM Teacher t WHERE t.id = :id", Teacher.class);
 
             // XXX: Carregar explicitamente os relacionamentos do primeiro nível
-            //TypedQuery<Teacher> query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
+            //query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
 
             // XXX: Carregar os relacionamentos LAZY aninhados usando funcionamento específico do Hibernate e não do JPA
-            //TypedQuery<Teacher> query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines d LEFT JOIN FETCH d.students LEFT JOIN FETCH d.classes LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
+            //query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines d LEFT JOIN FETCH d.students LEFT JOIN FETCH d.classes LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
 
             query.setParameter("id", id);
             teacher = query.getSingleResult();
+            System.out.println(teacher);
             System.out.println("Imprimindo...");
             System.out.println(teacher.getDisciplines().size());
             System.out.println(teacher);
             System.out.println(">>> EXEMPLO PROBLEMA N+1 TERMINA AQUI!");
         }
+
     }
 }
