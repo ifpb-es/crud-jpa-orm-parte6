@@ -1,8 +1,8 @@
-package br.edu.ifpb.es.daw.dao.entityGraph;
+package br.edu.ifpb.es.daw.dao.getall;
 
 import br.edu.ifpb.es.daw.dao.DAO;
 import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
-import br.edu.ifpb.es.daw.entities.entityGraph.Teacher;
+import br.edu.ifpb.es.daw.entities.getall.Teacher;
 
 import java.util.List;
 

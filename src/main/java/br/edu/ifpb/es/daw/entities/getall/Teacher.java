@@ -1,4 +1,4 @@
-package br.edu.ifpb.es.daw.entities.entityGraph;
+package br.edu.ifpb.es.daw.entities.getall;
 
 import br.edu.ifpb.es.daw.util.Util;
 import jakarta.persistence.CascadeType;

@@ -1,6 +1,6 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.entities.entityGraph.Teacher;
+import br.edu.ifpb.es.daw.entities.getall.Teacher;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

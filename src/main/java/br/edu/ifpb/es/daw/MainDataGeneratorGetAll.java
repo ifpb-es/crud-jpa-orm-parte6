@@ -1,6 +1,6 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.entityGraph.DataGeneratorGetAllDAO;
+import br.edu.ifpb.es.daw.dao.getall.DataGeneratorGetAllDAO;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 

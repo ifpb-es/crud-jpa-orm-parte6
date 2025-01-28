@@ -10,10 +10,10 @@
 		<class>br.edu.ifpb.es.daw.entities.Dog</class>
 		<class>br.edu.ifpb.es.daw.entities.Person</class>
 
-		<class>br.edu.ifpb.es.daw.entities.entityGraph.Teacher</class>
-		<class>br.edu.ifpb.es.daw.entities.entityGraph.Discipline</class>
-		<class>br.edu.ifpb.es.daw.entities.entityGraph.Student</class>
-		<class>br.edu.ifpb.es.daw.entities.entityGraph.Class</class>
+		<class>br.edu.ifpb.es.daw.entities.getall.Teacher</class>
+		<class>br.edu.ifpb.es.daw.entities.getall.Discipline</class>
+		<class>br.edu.ifpb.es.daw.entities.getall.Student</class>
+		<class>br.edu.ifpb.es.daw.entities.getall.Class</class>
 
 		<properties>
 

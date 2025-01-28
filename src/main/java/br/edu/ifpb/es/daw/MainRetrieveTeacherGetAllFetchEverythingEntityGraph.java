@@ -1,8 +1,8 @@
 package br.edu.ifpb.es.daw;
 
-import br.edu.ifpb.es.daw.dao.entityGraph.TeacherDAO;
-import br.edu.ifpb.es.daw.dao.entityGraph.impl.TeacherDAOImpl;
-import br.edu.ifpb.es.daw.entities.entityGraph.Teacher;
+import br.edu.ifpb.es.daw.dao.getall.TeacherDAO;
+import br.edu.ifpb.es.daw.dao.getall.impl.TeacherDAOImpl;
+import br.edu.ifpb.es.daw.entities.getall.Teacher;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 

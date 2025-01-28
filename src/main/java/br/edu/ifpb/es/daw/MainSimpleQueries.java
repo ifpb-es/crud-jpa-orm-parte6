@@ -38,6 +38,12 @@ public class MainSimpleQueries {
 			System.out.println("### findPersonByAddressObject:");
 			Person savedPerson = personDAO.findPersonByAddressObject(person03.getAddress());
 			System.out.println(savedPerson.getName());
+			/*
+			System.out.println("Address: " + savedPerson.getAddress().getStreetName());
+			for (Dog dog : savedPerson.getDogs()) {
+				System.out.println("Saved person Dog: " + dog.getName());
+			}
+			*/
 
 			System.out.println("### listAllDogsOrderingByWeight:");
 			List<Dog> dogsByWeight = dogDAO.listAllDogsOrderingByWeight();
@@ -58,7 +64,12 @@ public class MainSimpleQueries {
 			}
 
 			System.out.println("### findPersonByNameThatMayNotHaveDogs:");
-			Person person06 = personDAO.findPersonByNameThatMayNotHaveDogs(PERSON06_NAME);
+			Person person06 = null;
+			/*
+			person06 = personDAO.findPersonByNameWithAllDogs(PERSON06_NAME);
+			 */
+			person06 = personDAO.findPersonByNameThatMayNotHaveDogs(PERSON06_NAME);
+			System.out.println("Name: " + person06.getName());
 			System.out.println("Is the list of the Dogs from the Person 06 empty? " + person06.getDogs().size());
 		}
 

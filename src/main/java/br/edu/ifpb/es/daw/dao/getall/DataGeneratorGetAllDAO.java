@@ -1,10 +1,10 @@
-package br.edu.ifpb.es.daw.dao.entityGraph;
+package br.edu.ifpb.es.daw.dao.getall;
 
-import br.edu.ifpb.es.daw.entities.entityGraph.Class;
-import br.edu.ifpb.es.daw.entities.entityGraph.Discipline;
-import br.edu.ifpb.es.daw.entities.entityGraph.Specialty;
-import br.edu.ifpb.es.daw.entities.entityGraph.Student;
-import br.edu.ifpb.es.daw.entities.entityGraph.Teacher;
+import br.edu.ifpb.es.daw.entities.getall.Class;
+import br.edu.ifpb.es.daw.entities.getall.Discipline;
+import br.edu.ifpb.es.daw.entities.getall.Specialty;
+import br.edu.ifpb.es.daw.entities.getall.Student;
+import br.edu.ifpb.es.daw.entities.getall.Teacher;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;

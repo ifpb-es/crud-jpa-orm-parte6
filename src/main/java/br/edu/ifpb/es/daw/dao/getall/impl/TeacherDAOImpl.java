@@ -1,9 +1,9 @@
-package br.edu.ifpb.es.daw.dao.entityGraph.impl;
+package br.edu.ifpb.es.daw.dao.getall.impl;
 
 import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
-import br.edu.ifpb.es.daw.dao.entityGraph.TeacherDAO;
+import br.edu.ifpb.es.daw.dao.getall.TeacherDAO;
 import br.edu.ifpb.es.daw.dao.impl.AbstractDAOImpl;
-import br.edu.ifpb.es.daw.entities.entityGraph.Teacher;
+import br.edu.ifpb.es.daw.entities.getall.Teacher;
 import jakarta.persistence.EntityGraph;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

@@ -1,4 +1,4 @@
-package br.edu.ifpb.es.daw.entities.entityGraph;
+package br.edu.ifpb.es.daw.entities.getall;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

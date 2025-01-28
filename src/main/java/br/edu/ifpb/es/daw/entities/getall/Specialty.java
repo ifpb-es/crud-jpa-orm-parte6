@@ -1,7 +1,5 @@
-package br.edu.ifpb.es.daw.entities.entityGraph;
+package br.edu.ifpb.es.daw.entities.getall;
 
-import br.edu.ifpb.es.daw.util.Util;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -9,17 +7,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
-import java.util.Set;
-
 @Entity
-@Table(name = "DISCIPLINES")
-public class Discipline {
+@Table(name = "SPECIALTIES")
+public class Specialty {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -32,17 +25,7 @@ public class Discipline {
 	@JoinColumn(name = "TEACHER_FK")
 	private Teacher teacher;
 
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
-	@JoinTable(name = "DISCIPLINES_STUDENTS", joinColumns = @JoinColumn(name = "DISCIPLINE_FK") ,
-			inverseJoinColumns = @JoinColumn(name = "STUDENT_FK") )
-	private Set<Student> students;
-//	private List<Student> students;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.ALL }, mappedBy = "discipline")
-	private Set<Class> classes;
-//	private List<Class> classes;
-
-	public Discipline() {
+	public Specialty() {
 
 	}
 
@@ -70,26 +53,11 @@ public class Discipline {
 		this.teacher = teacher;
 	}
 
-	public Set<Student> getStudents() {
-		return students;
-	}
-
-	public void setStudents(Set<Student> students) {
-		this.students = students;
-	}
-
-	public Set<Class> getClasses() {
-		return classes;
-	}
-
-	public void setClasses(Set<Class> classes) {
-		this.classes = classes;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
@@ -102,7 +70,12 @@ public class Discipline {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Discipline other = (Discipline) obj;
+		Specialty other = (Specialty) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
@@ -113,7 +86,7 @@ public class Discipline {
 
 	@Override
 	public String toString() {
-		return "Discipline [id=" + id + ", name=" + name + ", students=" + Util.safeToStringLazyCollection(students)
-				+ ", classes=" + Util.safeToStringLazyCollection(classes) + "]";
+		return "Specialty [id=" + id + ", name=" + name + "]";
 	}
+
 }
