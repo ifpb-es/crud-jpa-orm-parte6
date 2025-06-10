@@ -21,6 +21,9 @@ public class MainSelectNPlusOneQueryProblem {
         try(EntityManagerFactory emf = Persistence.createEntityManagerFactory("daw");
             EntityManager em = emf.createEntityManager()) {
 
+            // Regra de negócio: Recuperar todos os professores e imprimir
+            // seu nome e o nome das disciplinas que leciona.
+
             //Long id = em.createQuery("SELECT t.id FROM Teacher t", Long.class).setMaxResults(1).getSingleResult();
             System.out.println(">>> EXEMPLO PROBLEMA N+1 COMEÇA AQUI!");
 
@@ -34,7 +37,7 @@ public class MainSelectNPlusOneQueryProblem {
             //query.setParameter("id", id);
             teachers = query.getResultList();
             for (Teacher t : teachers) {
-                System.out.println(">>> Teatcher name: " + t.getName());
+                System.out.println(">>> Teacher name: " + t.getName());
                 for (Discipline d : t.getDisciplines()) {
                     System.out.println(">>> Discipline name: " + d.getName());
                 }
