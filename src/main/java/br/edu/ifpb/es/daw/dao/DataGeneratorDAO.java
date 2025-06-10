@@ -114,27 +114,26 @@ public class DataGeneratorDAO {
 
 		Person person06 = new Person(PERSON06_NAME, 45);
 
-		EntityManager em = getEntityManager();
-		EntityTransaction transaction = em.getTransaction();
-		transaction.begin();
-		try {
-			em.persist(person01);
-			em.persist(person02);
-			em.persist(person03);
-			em.persist(person04);
-			em.persist(person05);
-			em.persist(person06);
+		try(EntityManager em = getEntityManager()) {
+			EntityTransaction transaction = em.getTransaction();
+			transaction.begin();
+			try {
+				em.persist(person01);
+				em.persist(person02);
+				em.persist(person03);
+				em.persist(person04);
+				em.persist(person05);
+				em.persist(person06);
 
-			em.persist(dog17);
-			em.persist(dog18);
-			transaction.commit();
-		} catch (PersistenceException pe) {
-			pe.printStackTrace();
-			if (transaction.isActive()) {
-				transaction.rollback();
+				em.persist(dog17);
+				em.persist(dog18);
+				transaction.commit();
+			} catch (PersistenceException pe) {
+				pe.printStackTrace();
+				if (transaction.isActive()) {
+					transaction.rollback();
+				}
 			}
-		} finally {
-			em.close();
 		}
 	}
 

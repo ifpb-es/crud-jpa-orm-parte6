@@ -1,0 +1,15 @@
+# Ordem de apresentação da demo 
+
+1. MainDataGenerator|MainDeleteAll
+   1. MainSimpleQueries|[MainSimpleQueriesCriteria]
+   1. MainFunctions|[MainFunctionsCriteria]
+
+1. MainDataGeneratorGetAll|MainDeleteAllGetAll
+   1. MainRetrieveTeacherGetAll
+   1. MainRetrieveTeacherGetAllFetchEverything
+   1. [MainRetrieveTeacherGetAllFetchEverythingEntityGraph]
+
+1. MainSelectNPlusOneQueryProblem
+
+1. MainSelectCartesianProductQueryProblem
+

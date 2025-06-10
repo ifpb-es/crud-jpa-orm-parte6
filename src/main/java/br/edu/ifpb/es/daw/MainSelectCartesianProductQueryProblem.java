@@ -24,20 +24,21 @@ public class MainSelectCartesianProductQueryProblem {
             TypedQuery<Teacher> query = null;
 
             // XXX: Não carregar explicitamente os relacionamentos
-            query = em.createQuery("SELECT t FROM Teacher t WHERE t.id = :id", Teacher.class);
+            //query = em.createQuery("SELECT t FROM Teacher t WHERE t.id = :id", Teacher.class);
 
             // XXX: Carregar explicitamente os relacionamentos do primeiro nível
             //query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
 
             // XXX: Carregar os relacionamentos LAZY aninhados usando funcionamento específico do Hibernate e não do JPA
-            //query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines d LEFT JOIN FETCH d.students LEFT JOIN FETCH d.classes LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
+            query = em.createQuery("SELECT t FROM Teacher t LEFT JOIN FETCH t.disciplines d LEFT JOIN FETCH d.students LEFT JOIN FETCH d.classes LEFT JOIN FETCH t.specialties WHERE t.id = :id", Teacher.class);
 
             query.setParameter("id", id);
             teacher = query.getSingleResult();
-            System.out.println(teacher);
-            System.out.println("Imprimindo...");
-            System.out.println(teacher.getDisciplines().size());
-            System.out.println(teacher);
+            System.out.println(">>> teacher.id: " + id);
+            System.out.println(">>> #toString(): " + teacher);
+            System.out.println(">>> Imprimindo...");
+            System.out.println(">>> #disciplinas: " + teacher.getDisciplines().size());
+            System.out.println(">>> #toString(): " + teacher);
             System.out.println(">>> EXEMPLO PROBLEMA PRODUTO CARTESIANO TERMINA AQUI!");
         }
 

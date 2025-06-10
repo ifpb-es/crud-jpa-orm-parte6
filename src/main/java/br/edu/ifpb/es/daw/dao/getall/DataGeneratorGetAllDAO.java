@@ -152,25 +152,22 @@ public class DataGeneratorGetAllDAO {
 		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher2);
 		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher2);
 
-		EntityManager em = getEntityManager();
-		EntityTransaction transaction = em.getTransaction();
-		transaction.begin();
+		try(EntityManager em = getEntityManager()) {
+			EntityTransaction transaction = em.getTransaction();
+			transaction.begin();
+			try {
+				// Basta salvar o Teacher porque fizemos cascade de todas as operações em todas as associações. Fizemos isto
+				// para facilitar nossa vida ao mostrar esse exemplo.
+				em.persist(teacher1);
+				em.persist(teacher2);
 
-		try {
-			// Basta salvar o Teacher porque fizemos cascade de todas as operações em todas as associações. Fizemos isto
-			// para facilitar nossa vida ao mostrar esse exemplo.
-			em.persist(teacher1);
-			em.persist(teacher2);
-
-			transaction.commit();
-		} catch (PersistenceException pe) {
-			pe.printStackTrace();
-			if (transaction.isActive()) {
-				transaction.rollback();
+				transaction.commit();
+			} catch (PersistenceException pe) {
+				pe.printStackTrace();
+				if (transaction.isActive()) {
+					transaction.rollback();
+				}
 			}
-		} finally {
-			em.close();
 		}
-
 	}
 }

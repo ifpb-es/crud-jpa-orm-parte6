@@ -27,7 +27,7 @@ import java.util.Set;
 		// element collection that is referenced from an entity or embeddable that is returned as a result of the
 		// query. It is not permitted to specify an identification variable for the objects referenced by the right
 		// side of the FETCH JOIN clause, and hence references to the implicitly fetched entities or elements cannot
-		//  appear elsewhere in the query."
+		// appear elsewhere in the query."
 		// Referência: https://jakarta.ee/specifications/persistence/3.1/jakarta-persistence-spec-3.1#a4931
 		@NamedQuery(name = "Teacher.getAllFetchEverything",
 					query = "SELECT DISTINCT t FROM Teacher t " +

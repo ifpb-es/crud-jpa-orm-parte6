@@ -35,7 +35,7 @@ public class MainFunctionsCriteria {
 
 			System.out.println("### getPersonsAgeAverage:");
 			Double average = personDAO.getPersonsAgeAverage();
-			System.out.println(average);
+			System.out.println(">>> " + average);
 
 			System.out.println("### getPersonsWithDogsWeightHigherThan:");
 			List<Object[]> personsFilteredByDogsWeight = personDAO.getPersonsWithDogsWeightHigherThan(4d);
@@ -43,28 +43,28 @@ public class MainFunctionsCriteria {
 			for (Object[] objects : personsFilteredByDogsWeight) {
 				String name = (String) objects[0];
 				Long count = (Long) objects[1];
-				System.out.println("The person : " + name + " has " + count + " dogs with the weight > 4");
+				System.out.println(">>> The person : " + name + " has " + count + " dogs with the weight > 4");
 			}
 
 			System.out.println("### getDogMinAndMaxWeight:");
 			Object[] dogMinAndMaxWeightResult = dogDAO.getDogMinAndMaxWeight();
-			System.out.println("Min: " + dogMinAndMaxWeightResult[0] + " Max: " + dogMinAndMaxWeightResult[1]);
+			System.out.println(">>> Min: " + dogMinAndMaxWeightResult[0] + " Max: " + dogMinAndMaxWeightResult[1]);
 
 			System.out.println("### getTheSumOfAllAges:");
 			Long sumOfAllAges = personDAO.getTheSumOfAllAges();
-			System.out.println("All summed ages are: " + sumOfAllAges);
+			System.out.println(">>> All summed ages are: " + sumOfAllAges);
 
 			System.out.println("### getLoweredCaseNameFromUpperCase:");
 			String loweredCaseName = personDAO.getLoweredCaseNameFromUpperCase(PERSON03_NAME);
-			System.out.println(loweredCaseName);
+			System.out.println(">>> " + loweredCaseName);
 
 			System.out.println("### getPersonAgeMode:");
 			Integer personAgeMod = personDAO.getPersonAgeMod(PERSON05_NAME, 6);
-			System.out.println("Person modulus age: " + personAgeMod);
+			System.out.println(">>> Person modulus age: " + personAgeMod);
 
 			System.out.println("### getPersonAgeSqrtUsingTrim:");
 			Double personAgeSqrt = personDAO.getPersonAgeSqrtUsingTrim(" " + PERSON04_NAME + " ");
-			System.out.println("Person sqrt age: " + personAgeSqrt);
+			System.out.println(">>> Person sqrt age: " + personAgeSqrt);
 
 			System.out.println("### getPersonByHavingDogAmountHigherThan:");
 			List<Object[]> personsByDogsAmount = personDAO.getPersonByHavingDogAmountHigherThan(3);
@@ -72,7 +72,7 @@ public class MainFunctionsCriteria {
 			for (Object[] objects : personsByDogsAmount) {
 				String name = (String) objects[0];
 				Long count = (Long) objects[1];
-				System.out.println(name + " has " + count + " dogs");
+				System.out.println(">>> " + name + " has " + count + " dogs");
 			}
 		}
 

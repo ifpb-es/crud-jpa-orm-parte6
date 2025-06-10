@@ -34,17 +34,17 @@ public class MainSelectNPlusOneQueryProblem {
             //query.setParameter("id", id);
             teachers = query.getResultList();
             for (Teacher t : teachers) {
-                System.out.println("Teatcher name: " + t.getName());
+                System.out.println(">>> Teatcher name: " + t.getName());
                 for (Discipline d : t.getDisciplines()) {
-                    System.out.println("Discipline name: " + d.getName());
+                    System.out.println(">>> Discipline name: " + d.getName());
                 }
             }
 
             /*
-            System.out.println(teachers);
-            System.out.println("Imprimindo...");
-            System.out.println(teachers.getDisciplines().size());
-            System.out.println(teachers);
+            System.out.println(">>> " + teachers);
+            System.out.println(">>> Imprimindo...");
+            System.out.println(">>> " + teachers.getDisciplines().size());
+            System.out.println(">>> " + teachers);
             */
             System.out.println(">>> EXEMPLO PROBLEMA N+1 TERMINA AQUI!");
         }
