@@ -1,10 +1,10 @@
 # Ordem de apresentação da demo 
 
-1. MainDataGenerator|MainDeleteAll
+1. MainDataGenerator|MainDeleteAll (Person, Dog, Address)
    1. MainSimpleQueries|[MainSimpleQueriesCriteria]
    1. MainFunctions|[MainFunctionsCriteria]
 
-1. MainDataGeneratorGetAll|MainDeleteAllGetAll
+1. MainDataGeneratorGetAll|MainDeleteAllGetAll (Teacher, Discipline, Student, Class, Specialty)
    1. MainRetrieveTeacherGetAll
    1. MainRetrieveTeacherGetAllFetchEverything
    1. [MainRetrieveTeacherGetAllFetchEverythingEntityGraph]
