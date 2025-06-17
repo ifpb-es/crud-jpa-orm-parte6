@@ -2,6 +2,7 @@ package br.edu.ifpb.es.daw.dao;
 
 import br.edu.ifpb.es.daw.entities.Address;
 import br.edu.ifpb.es.daw.entities.Person;
+import br.edu.ifpb.es.daw.entities.PersonNameWithDogsCount;
 
 import java.util.List;
 
@@ -105,6 +106,6 @@ public interface PersonDAO extends DAO<Person, Long> {
      * @param dogAmount
      * @return
      */
-    List<Object[]> getPersonByHavingDogAmountHigherThan(long dogAmount) throws PersistenciaDawException;
+    List<PersonNameWithDogsCount> getPersonByHavingDogAmountHigherThan(long dogAmount) throws PersistenciaDawException;
 
 }

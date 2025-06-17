@@ -5,6 +5,7 @@ import br.edu.ifpb.es.daw.dao.PersonDAO;
 import br.edu.ifpb.es.daw.entities.Address;
 import br.edu.ifpb.es.daw.entities.Dog;
 import br.edu.ifpb.es.daw.entities.Person;
+import br.edu.ifpb.es.daw.entities.PersonNameWithDogsCount;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceException;
@@ -369,13 +370,13 @@ public class PersonCriteriaDAOImpl extends AbstractDAOImpl<Person, Long> impleme
      * @param dogAmount
      * @return
      */
-    public List<Object[]> getPersonByHavingDogAmountHigherThan(long dogAmount) throws PersistenciaDawException {
+    public List<PersonNameWithDogsCount> getPersonByHavingDogAmountHigherThan(long dogAmount) throws PersistenciaDawException {
         try(EntityManager em = getEntityManager()) {
-            List<Object[]> resultado = null;
+            List<PersonNameWithDogsCount> resultado = null;
 
             CriteriaBuilder cb = em.getCriteriaBuilder();
 
-            CriteriaQuery<Object[]> query = cb.createQuery(Object[].class);
+            CriteriaQuery<PersonNameWithDogsCount> query = cb.createQuery(PersonNameWithDogsCount.class);
             Root<Person> fromPerson = query.from(Person.class);
 
             query.multiselect(fromPerson.<String>get("name"), cb.count(fromPerson));
@@ -386,7 +387,7 @@ public class PersonCriteriaDAOImpl extends AbstractDAOImpl<Person, Long> impleme
 
             query.having(cb.gt(cb.count(joinDogs), dogAmount));
 
-            TypedQuery<Object[]> typedQuery = em.createQuery(query);
+            TypedQuery<PersonNameWithDogsCount> typedQuery = em.createQuery(query);
             resultado = typedQuery.getResultList();
             return resultado;
         } catch (PersistenceException pe) {

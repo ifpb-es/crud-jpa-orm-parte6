@@ -4,6 +4,7 @@ import br.edu.ifpb.es.daw.dao.PersistenciaDawException;
 import br.edu.ifpb.es.daw.dao.PersonDAO;
 import br.edu.ifpb.es.daw.entities.Address;
 import br.edu.ifpb.es.daw.entities.Person;
+import br.edu.ifpb.es.daw.entities.PersonNameWithDogsCount;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.PersistenceException;
@@ -188,13 +189,13 @@ public class PersonDAOImpl extends AbstractDAOImpl<Person, Long> implements Pers
     }
 
     @Override
-    public List<Object[]> getPersonByHavingDogAmountHigherThan(long dogAmount) throws PersistenciaDawException {
+    public List<PersonNameWithDogsCount> getPersonByHavingDogAmountHigherThan(long dogAmount) throws PersistenciaDawException {
         try(EntityManager em = getEntityManager()) {
-            List<Object[]> resultado = null;
+            List<PersonNameWithDogsCount> resultado = null;
 
-            TypedQuery<Object[]> query = em
-                    .createQuery("SELECT p.name, COUNT(p) FROM Person p JOIN p.dogs d GROUP BY p.id, p.name HAVING COUNT(d) > :dogAmount",
-                            Object[].class);
+            TypedQuery<PersonNameWithDogsCount> query = em
+                    .createQuery("SELECT new br.edu.ifpb.es.daw.entities.PersonNameWithDogsCount(p.name, COUNT(p)) FROM Person p JOIN p.dogs d GROUP BY p.id, p.name HAVING COUNT(d) > :dogAmount",
+                            PersonNameWithDogsCount.class);
             query.setParameter("dogAmount", dogAmount);
             resultado = query.getResultList();
             return resultado;

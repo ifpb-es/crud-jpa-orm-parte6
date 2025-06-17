@@ -4,6 +4,7 @@ import br.edu.ifpb.es.daw.dao.DogDAO;
 import br.edu.ifpb.es.daw.dao.PersonDAO;
 import br.edu.ifpb.es.daw.dao.impl.DogCriteriaDAOImpl;
 import br.edu.ifpb.es.daw.dao.impl.PersonCriteriaDAOImpl;
+import br.edu.ifpb.es.daw.entities.PersonNameWithDogsCount;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
@@ -67,11 +68,11 @@ public class MainFunctionsCriteria {
 			System.out.println(">>> Person sqrt age: " + personAgeSqrt);
 
 			System.out.println("### getPersonByHavingDogAmountHigherThan:");
-			List<Object[]> personsByDogsAmount = personDAO.getPersonByHavingDogAmountHigherThan(3);
+			List<PersonNameWithDogsCount> personsByDogsAmount = personDAO.getPersonByHavingDogAmountHigherThan(3);
 
-			for (Object[] objects : personsByDogsAmount) {
-				String name = (String) objects[0];
-				Long count = (Long) objects[1];
+			for (PersonNameWithDogsCount obj : personsByDogsAmount) {
+				String name = obj.getName();
+				Long count = obj.getCount();
 				System.out.println(">>> " + name + " has " + count + " dogs");
 			}
 		}
