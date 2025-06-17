@@ -12,7 +12,7 @@ public class Util {
 		}
 
 		if (Persistence.getPersistenceUtil().isLoaded(collection)) {
-			return collection.toString();
+			return String.format("#%d: %s", collection.size(), collection.toString());
 		}
 
 		return "<not initialized>";

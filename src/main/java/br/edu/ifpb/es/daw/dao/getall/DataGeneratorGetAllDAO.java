@@ -121,6 +121,8 @@ public class DataGeneratorGetAllDAO {
 		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher1);
 		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher1);
 		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher1);
+		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher1);
+		createAndAssociateSpecialty("Specialty " + System.nanoTime(), teacher1);
 
 		Teacher teacher2 = getTeacher("Teacher " + System.nanoTime());
 
